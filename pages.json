@@ -1,15 +1,11 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/card/card",
-			"style": {
-				"navigationBarTitleText": "草本世界"
-			}
+			"path": "pages/card/card"
 		},{
             "path" : "pages/gpt/gpt",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "草本世界",
                 "enablePullDownRefresh": false
             }
             
@@ -17,7 +13,6 @@
             "path" : "pages/map/map",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "草本世界",
                 "enablePullDownRefresh": false
             }
             
@@ -25,22 +20,18 @@
             "path" : "pages/acount/acount",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "草本世界",
                 "enablePullDownRefresh": false
             }
             
         },{
-			"path": "pages/map/hubei",
-			"style": {
-				"navigationBarTitleText": "草本世界"
-			}
+			"path": "pages/map/hubei"
+		},{
+			"path": "pages/gpt/chat"
 		}
-        
-        
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
-		"navigationBarTitleText": "草本世界",
+		"navigationBarTitleText": "药材宝典",
 		"navigationBarBackgroundColor": "#00815e",
 		"backgroundColor": "#F8F8F8"
 	},

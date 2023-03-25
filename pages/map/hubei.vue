@@ -104,7 +104,7 @@
 <style lang="scss" scoped>
 	.charts-box {
 		width: 80%;
-		padding: 10px 10px 10px;
+		padding: 10px;
 		border: 3px solid rgba(56, 126, 135, 0.7);
 		border-radius: 8px;
 		box-shadow: 8px 7px 10px rgba(0, 0, 0, .5);
