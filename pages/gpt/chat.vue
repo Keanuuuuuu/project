@@ -32,6 +32,7 @@
 				init: false,
 				isAnswering: false,
 				question: '',
+				q:'',
 				answer: '',
 				context: []
 			};
@@ -50,14 +51,7 @@
 				}
 			},
 			handleAnswer() {
-				const str = res.answer;
-				const unicodeRegex = /\\u\{?([0-9A-Fa-f]+)\}?/g;
-				const decoded = str.replace(unicodeRegex, (match, p1) => {
-				  const code = parseInt(p1, 16);
-				  return String.fromCharCode(code);
-				});
-				console.log(decoded); 
-				this.answer = decoded	//输出解码
+				this.context.push(this.answer)
 			},
 			response() {
 				this.handleAnswer()
@@ -68,21 +62,25 @@
 					return
 				}
 				if (this.question.trim() !== '') {
+					console.log(this.question)
 					this.context.push(this.question)
+					this.q = this.question //中间变量转接
 					this.question = ''
 				}
 				this.isAnswering = true
-				this.response()
 			},
 			sendQuestion() {
 				uni.request({
 				    url: 'http://127.0.0.1:5000/gpt/chat', 
 				    data: {
-				        question: this.question
+				        question: this.q
 				    },
 					method:'POST',
 				    success: (res) => {
-				        console.log(res);
+						console.log('**********',this.question)
+				        console.log(res.data);
+						this.answer = res.data
+						  this.response()
 				    }
 				});
 			},
