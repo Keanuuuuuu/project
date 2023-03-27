@@ -60,10 +60,11 @@
 	</view>
 </template>
 
-<script>
+
+<script module="echarts" lang="renderjs">
 	//下面是演示数据，您的项目不需要引用，数据需要您从服务器自行获取
 	import mapdata from '@/mockdata/hubeidata.json'
-	import $ from 'jquery'
+	// import $ from 'jquery'
 	export default {
 		data() {
 			return {
@@ -85,12 +86,16 @@
 				}, 300)
 			},
 			next() {
-				$('.two').css('left', 20)
-				$('.one').css('left', -400)
+				let one = document.querySelector('.one')
+				let two = document.querySelector('.two')
+				one.style.left = '-400px'
+				two.style.left = '20px'
 			},
 			pre() {
-				$('.one').css('left', 20)
-				$('.two').css('left', 350)
+				let one = document.querySelector('.one')
+				let two = document.querySelector('.two')
+				one.style.left = '20px'
+				two.style.left = '350px'
 			},
 			navigator() {
 				console.log(111)
@@ -101,6 +106,8 @@
 		},
 	};
 </script>
+
+
 <style lang="scss" scoped>
 	.charts-box {
 		width: 80%;

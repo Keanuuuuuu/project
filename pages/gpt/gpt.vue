@@ -1,7 +1,7 @@
 <template>
 	<view class="charts-box">
 		<view class="gpt">
-			<img src="../../static/logo.png">
+			<image src="../../static/logo.png">
 			<view class="title">
 				<span>试试这样问：</span>
 			</view>
@@ -19,7 +19,7 @@
 			</view>
 		</view>
 		<view class="input" @click="navigator">
-			<img src="../../static/send.png">
+			<image src="../../static/send.png">
 		</view>
 	</view>
 </template>
@@ -58,8 +58,9 @@
 		margin-left: 10px;
 		margin-right: 10px;
 		margin-top: 10px;
-		img{
+		image{
 			width: 150px;
+			height: 150px;
 			margin-top: 20px;
 			margin-left: 80px;
 		}
@@ -103,7 +104,7 @@
 		border-radius: 5px;
 		width: 80%;
 		height: 30px;
-		img{
+		image{
 			position: absolute;
 			right: 10px;
 			top: 3px;
