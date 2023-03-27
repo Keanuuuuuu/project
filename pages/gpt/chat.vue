@@ -2,119 +2,145 @@
 	<view id="parent" class="charts-box">
 		<view class="gpt" v-show="init">
 			<image src="../../static/logo.png">
-			<view class="answer">
-				<p>你好，请问有什么我可以帮到您的?</p>
-			</view>
+				<view class="answer">
+					<p>你好，请问有什么我可以帮到您的?</p>
+				</view>
 		</view>
-		
-		<view class="gpt foo" v-for="(item,index) in context" :key="index" :class="{ odd: index % 2 === 0, even: index % 2 === 1 }">
+
+		<view class="gpt foo" v-for="(item,index) in context" :key="index"
+			:class="{ odd: index % 2 === 0, even: index % 2 === 1 }">
 			<image :src="getImg(index)">
-			<view class="question">     
-				<p>{{item}}</p>
-			</view>
+				<view class="question">
+					<p>{{item}}</p>
+				</view>
 		</view>
-		
-		
+
+
 		<view class="input" @keydown.enter="send">
 			<input id="inputcontent" v-model="question" type="text" placeholder="请输入你的问题">
-			<image  @click="send" src="../../static/send.png">
+			<image @click="send" src="../../static/send.png">
 		</view>
-		
+
 	</view>
 </template>
 
 <script>
-	import $ from 'jquery'		
+	import $, { post } from 'jquery'
 	export default {
 		data() {
 			return {
-				init:false,
-				isAnswering:false,
-				question:'',
-				answer:'',
-				context:[]
+				init: false,
+				isAnswering: false,
+				question: '',
+				answer: '',
+				context: []
 			};
 		},
 		onReady() {
-			setTimeout(()=>{
+			setTimeout(() => {
 				this.init = true
-			},600)
+			}, 600)
 		},
 		methods: {
-			getImg(index){
+			getImg(index) {
 				if (index % 2 === 0) {
-				  return require('../../static/acount.png');
+					return require('../../static/acount.png');
 				} else {
-				  return require('../../static/logo.png');
+					return require('../../static/logo.png');
 				}
 			},
-			handleAnswer(){
-				setTimeout(()=>{
-					this.context.push('你说的对')
-					this.move()
-				},1000)
-				
+			handleAnswer() {
+				const str = res.answer;
+				const unicodeRegex = /\\u\{?([0-9A-Fa-f]+)\}?/g;
+				const decoded = str.replace(unicodeRegex, (match, p1) => {
+				  const code = parseInt(p1, 16);
+				  return String.fromCharCode(code);
+				});
+				console.log(decoded); 
+				this.answer = decoded	//输出解码
 			},
-			response(){
+			response() {
 				this.handleAnswer()
 				this.isAnswering = false
 			},
-			handleSend(){
-				if(this.isAnswering){
+			handleSend() {
+				if (this.isAnswering) {
 					return
 				}
-				if(this.question.trim() !== ''){
+				if (this.question.trim() !== '') {
 					this.context.push(this.question)
 					this.question = ''
 				}
 				this.isAnswering = true
 				this.response()
 			},
-			send(){
+			sendQuestion() {
+				uni.request({
+				    url: 'http://127.0.0.1:5000/gpt/chat', 
+				    data: {
+				        question: this.question
+				    },
+					method:'POST',
+				    success: (res) => {
+				        console.log(res);
+				    }
+				});
+			},
+			send() {
 				this.handleSend()
-				console.log(index)
+				this.sendQuestion()
 			}
-		},
+		},	
 	};
 </script>
 <style lang="scss" scoped>
 	.even {
-	  	// 机器 偶数
-	  flex-direction: row!important;
+		// 机器 偶数
+		flex-direction: row !important;
 	}
+
 	.odd {
-	  // 用户 奇数
+		// 用户 奇数
 	}
-	.question,.answer{
+
+	.question,
+	.answer {
 		border-radius: 5px;
 		margin-right: 10px;
 		padding-right: 10px;
-		p{
+
+		p {
 			margin-left: 15px;
 			margin-bottom: 10px;
 			width: 215px;
 			white-space: pre-wrap;
 			word-wrap: break-word;
 		}
+
 		background-color: antiquewhite;
 	}
-	.gpt{
+
+	.gpt {
 		// border: 2px solid rgba(56, 126, 135, 0.7);
 		display: flex;
 		margin: 40px 10px;
-		image{
+
+		image {
 			width: 40px;
 			height: 40px;
 			margin-right: 10px;
 		}
-		p{
+
+		p {
 			margin-top: 10px;
 		}
 	}
-	.foo{
+
+	.foo {
 		flex-direction: row-reverse;
 	}
-	.input{
+
+	.input {
 		background-color: #fff;
 		position: fixed;
 		margin-bottom: 10px;
@@ -126,21 +152,24 @@
 		box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 		width: 80%;
 		height: 35px;
-		image{
+
+		image {
 			position: absolute;
 			right: 10px;
 			top: 6px;
 			height: 75%;
 			width: 9%;
 		}
-		input{
+
+		input {
 			// border: 2px solid rgba(56, 126, 135, 0.7);
 			margin-top: 6px;
 			margin-left: 8px;
 			width: 82%;
 		}
 	}
-	.charts-box{
+
+	.charts-box {
 		padding-bottom: 50px;
 	}
 </style>
