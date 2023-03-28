@@ -1,4 +1,5 @@
 <template>
+<view>
 	<view class="charts-box">
 		<qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" :chartData="chartsDataMap1" />
 		<view v-show="show">
@@ -58,6 +59,10 @@
 			</view>
 		</view>
 	</view>
+	<view class="alert">
+		<p>*地图来源于高德开放平台，<br>该版本数据更新于2021.5</p>
+	</view>
+</view>
 </template>
 
 
@@ -109,6 +114,13 @@
 
 
 <style lang="scss" scoped>
+	.alert{
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		font-size: 5px;
+		color: gray;
+	}
 	.charts-box {
 		width: 80%;
 		padding: 10px;

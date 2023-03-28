@@ -7,6 +7,9 @@
 		<span class="text">中国药材分布</span>
 	  </view>	
 	</view>
+	<view class="alert">
+		<p>*地图来源于高德开放平台，<br>该版本数据更新于2021.5</p>
+	</view>
   </view>
 </template>
 
@@ -44,15 +47,22 @@ export default {
 </script>
 
 <style scoped>
+.alert{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 5px;
+	color: gray;
+}
 .charts-box {
   width: 80%;
-  padding: 10px 10px 30px;
+  padding: 5px 10px 30px;
   border: 3px solid rgba(56, 126, 135, 0.7);
   border-radius: 8px;
   box-shadow: 8px 7px 10px rgba(0,0,0,.5);
   position: absolute;
   left: 50%;
-  top: 50%;
+  top: 48%;
   transform: translate(-50%,-50%);
 }
 .title{
