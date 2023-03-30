@@ -1,11 +1,11 @@
 <template>
-  <view class="content">
+  <view class="content" @click.stop="trigger">
     <view class="charts-box" style="height: 400px;">
-      <qiun-data-charts type="map" :opts="{extra:{map:{mercator:true}}}" @getIndex="fn" :chartData="chartsDataMap1"/>
+      <qiun-data-charts :class="{scale:isScale,original:isOriginal}" type="map" :opts="{extra:{map:{mercator:true}}}" @getIndex="fn" :chartData="chartsDataMap1"/>
 	  <view class="title">
 	  	<view class="decoration"></view>
 		<span class="text">中国药材分布</span>
-	  </view>	
+	  </view>
 	</view>
 	<view class="alert">
 		<p>*地图来源于高德开放平台，<br>该版本数据更新于2021.5</p>
@@ -19,7 +19,9 @@ import mapdata from '@/mockdata/mapdata.json'
 export default {
   data() {
     return {
-      chartsDataMap1:{}
+      chartsDataMap1:{},
+	  isScale:false,
+	  isOriginal:true
     };
   },
   onReady() {
@@ -40,19 +42,30 @@ export default {
 				})
 			},300)
 		}
-
+	},
+	trigger(){
+		this.isScale = !this.isScale
+		this.isOriginal = !this.isOriginal
 	}
   },
 };
 </script>
 
 <style scoped>
+.original{
+	transform: scale(1);
+	transition: all .3s;
+}
 .alert{
 	position: absolute;
 	bottom: 0;
 	right: 0;
 	font-size: 5px;
-	color: gray;
+	color: #000000;
+}
+.scale{
+	  transform: scale(1.5);
+	  transition: all .3s;
 }
 .charts-box {
   width:90%;
@@ -64,6 +77,7 @@ export default {
   left: 50%;
   top: 44%;
   transform: translate(-50%,-50%);
+  overflow: hidden;
 }
 .title{
 	position: absolute;
