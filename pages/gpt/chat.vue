@@ -6,7 +6,7 @@
 					<p>你好，请问有什么我可以帮到您的?</p>
 				</view>
 		</view>
-
+		
 		<view class="gpt foo" v-for="(item,index) in context" :key="index"
 			:class="{ odd: index % 2 === 0, even: index % 2 === 1 }">
 			<image :src="getImg(index)">
@@ -21,6 +21,12 @@
 			<image @click="send" src="../../static/send.png">
 		</view>
 
+		<view class="gpt" v-show="isAnswering">
+			<image src="../../static/logo.png">
+				<view class="answer">
+					<p>加载中...</p>
+				</view>
+		</view>
 	</view>
 </template>
 
@@ -67,7 +73,9 @@
 					this.q = this.question //中间变量转接
 					this.question = ''
 				}
-				this.isAnswering = true
+				setTimeout(() => {
+					this.isAnswering = true
+				}, 600)				
 			},
 			sendQuestion() {
 				uni.request({

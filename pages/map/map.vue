@@ -55,20 +55,20 @@ export default {
 	color: gray;
 }
 .charts-box {
-  width: 80%;
+  width:90%;
   padding: 5px 10px 30px;
-  border: 3px solid rgba(56, 126, 135, 0.7);
+  /* border: 3px solid rgba(56, 126, 135, 0.7); */
   border-radius: 8px;
-  box-shadow: 8px 7px 10px rgba(0,0,0,.5);
+  /* box-shadow: 8px 7px 10px rgba(0,0,0,.5); */
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 44%;
   transform: translate(-50%,-50%);
 }
 .title{
 	position: absolute;
 	left: 50%;
-	bottom: 20px;
+	bottom: 0px;
 	transform: translateX(-50%);
 	display: flex;
 	align-items: center;
