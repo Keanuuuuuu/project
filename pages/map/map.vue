@@ -57,7 +57,7 @@ export default {
 .charts-box {
   width:90%;
   padding: 5px 10px 30px;
-  /* border: 3px solid rgba(56, 126, 135, 0.7); */
+  border: 3px solid rgba(56, 126, 135, 0.7);
   border-radius: 8px;
   /* box-shadow: 8px 7px 10px rgba(0,0,0,.5); */
   position: absolute;
@@ -68,7 +68,7 @@ export default {
 .title{
 	position: absolute;
 	left: 50%;
-	bottom: 0px;
+	bottom: 20px;
 	transform: translateX(-50%);
 	display: flex;
 	align-items: center;

@@ -2,21 +2,21 @@
 	<view class="charts-box">
 		<view class="gpt">
 			<image src="../../static/logo.png">
-			<view class="title">
-				<span>试试这样问：</span>
-			</view>
-			<hr class="foo">
-			<view class="suggest">
-				<view class="example">
-					<p>"艾叶的功效是什么？" →</p>
+				<view class="title">
+					<span>试试这样问：</span>
 				</view>
-				<view class="example">
-					<p>"什么药材清热解毒？" →</p>
+				<hr class="foo">
+				<view class="suggest">
+					<view class="example" @click="navigator">
+						<p>"艾叶的功效是什么？" →</p>
+					</view>
+					<view class="example" @click="navigator">
+						<p>"什么药材清热解毒？" →</p>
+					</view>
+					<view class="example" @click="navigator">
+						<p>"湖北省有哪些药材？" →</p>
+					</view>
 				</view>
-				<view class="example">
-					<p>"湖北省有哪些药材？" →</p>
-				</view>
-			</view>
 		</view>
 		<view class="input" @click="navigator">
 			<image src="../../static/send.png">
@@ -28,15 +28,13 @@
 	import $ from 'jquery'
 	export default {
 		data() {
-			return {
-			};
+			return {};
 		},
-		onReady() {
-		},
+		onReady() {},
 		methods: {
 			navigator() {
 				uni.navigateTo({
-					url:"/pages/gpt/chat"
+					url: "/pages/gpt/chat"
 				})
 			}
 		},
@@ -54,17 +52,20 @@
 		top: 50%;
 		transform: translate(-50%, -50%);
 	}
-	.gpt{
+
+	.gpt {
 		margin-left: 10px;
 		margin-right: 10px;
 		margin-top: 10px;
-		image{
+
+		image {
 			width: 150px;
 			height: 150px;
 			margin-top: 20px;
 			margin-left: 80px;
 		}
-		.title{
+
+		.title {
 			margin: 10px auto;
 			text-align: center;
 			font-size: 22px;
@@ -72,31 +73,37 @@
 			color: rgb(56, 126, 135);
 		}
 	}
-	.suggest{
+
+	.suggest {
 		margin: 20px auto;
 		// border: 1px solid black;
 		width: 270px;
 		height: 170px;
-		span{
+
+		span {
 			font-size: 17px;
 			font-weight: 550;
 			color: rgb(56, 126, 135);
 		}
-		.example{
+
+		.example {
 			// background-color: rgba(5, 5, 7, 0.6);
-			background-color: antiquewhite;
+			// background-color: antiquewhite;
 			display: flex;
 			justify-content: center;
 			align-items: center;
 			border-radius: 5px;
-			// border: 1px solid black;
+			// background-color: rgb(47, 53, 47);
+			border: 2px solid rgba(161, 163, 190, 0.8);
+			// box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 			width: 85%;
 			height: 40px;
 			margin: 10px auto 0;
 			color: dimgray;
 		}
 	}
-	.input{
+
+	.input {
 		position: absolute;
 		left: 30px;
 		bottom: 10px;
@@ -104,7 +111,8 @@
 		border-radius: 5px;
 		width: 80%;
 		height: 30px;
-		image{
+
+		image {
 			position: absolute;
 			right: 10px;
 			top: 3px;
@@ -112,7 +120,8 @@
 			width: 9%;
 		}
 	}
-	.foo{
+
+	.foo {
 		margin-top: 2px;
 		height: 1px;
 	}

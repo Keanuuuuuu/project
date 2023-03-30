@@ -3,7 +3,7 @@
 		<view class="gpt" v-show="init">
 			<image src="../../static/logo.png">
 				<view class="answer">
-					<p>你好，请问有什么我可以帮到您的?</p>
+					<p>您好，请问有什么我可以帮到您的?</p>
 				</view>
 		</view>
 		
@@ -17,7 +17,7 @@
 
 
 		<view class="input" @keydown.enter="send">
-			<input id="inputcontent" v-model="question" type="text" placeholder="请输入你的问题">
+			<input id="inputcontent" v-model="question" type="text" placeholder="请输入你的问题" auto-focus="autofocus">
 			<image @click="send" src="../../static/send.png">
 		</view>
 
@@ -123,7 +123,12 @@
 			word-wrap: break-word;
 		}
 
-		background-color: antiquewhite;
+		// background-color: antiquewhite;
+		background-color: rgba(190, 240, 206, 0.5);
+	}
+	.answer{
+		background-color: rgba(208, 208, 208, 0.1);
+		border: 1px solid rgba(34, 34, 34, 0.1);
 	}
 
 	.gpt {
