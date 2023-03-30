@@ -1,7 +1,8 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path": "pages/card/card"
+			"path": "pages/card/card",
+			"navigationBarBackgroundColor": ""
 		},{
             "path" : "pages/gpt/gpt",
             "style" :                                                                                    
@@ -28,19 +29,91 @@
 		},{
 			"path": "pages/gpt/chat"
 		}
+        ,{
+            "path" : "pages/card/components/CardBar",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/Card",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/CardList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/CardFront",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/CardBack",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/CardDetails",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/Content",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/card/components/TabList",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "药材宝典",
-		"navigationBarBackgroundColor": "#00815e",
+		"navigationBarBackgroundColor": "rgba(59,168,122)",
 		"backgroundColor": "#F8F8F8"
 	},
 	"uniIdRouter": {},
 	"tabBar": {
 		"color": "#999",
-		"selectedColor": "#00b783",
+		"selectedColor": "#99acbe",
 		"borderStyle": "black",
-		"backgroundColor": "white",
+		"backgroundColor": "#ffffff",
 		"list": [
 			{
 				"pagePath": "pages/card/card",

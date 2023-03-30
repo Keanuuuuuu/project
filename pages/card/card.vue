@@ -1,52 +1,54 @@
 <template>
-	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			卡片
-		</view>
+	<view class="content" :style="{height:btom}">
+		<CardBar title="card" left="search" right="crosshairs"></CardBar>
+		<TabList></TabList>
+		<card-list></card-list>
+		<CardDetails></CardDetails>
 	</view>
 </template>
 
 <script>
+	import CardBar from './components/CardBar.vue'
+	import CardList from './components/CardList.vue'
+	import CardDetails from './components/CardDetails.vue'
+	import TabList from './components/TabList.vue'
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				title: 'card',
+				btom:0
 			}
+		},
+		components:{
+			CardBar,
+			CardList,
+			CardDetails,
+			TabList
 		},
 		onLoad() {
 
 		},
 		methods: {
 
+		},
+		mounted() {
+			this.btom = uni.getWindowInfo().windowHeight+"px"
 		}
 	}
 </script>
 
 <style>
 	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
+		width: 100%;
+		overflow: hidden;
+		color: white;
+		/* background-image: linear-gradient(to top, #99acbe 5%, #a8b3bf 20%, #cfd7dd); */
+		background-color: #ecedef;
+		/* background-image: url('../.././static/caoyao_card/brijing1.jpg'); */
+		/* background-position-y: 20px; */
+		/* background-size: 100%; */
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
 </style>
