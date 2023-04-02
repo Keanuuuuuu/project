@@ -1,27 +1,27 @@
 <template>
-	<view class="charts-box">
-		<view class="gpt">
-			<image src="../../static/logo.png">
-				<view class="title">
-					<span>试试这样问：</span>
+<view class="charts-box">
+	<view class="gpt">
+		<image src="../../static/logo.png">
+			<view class="title">
+				<span>试试这样问：</span>
+			</view>
+			<hr class="foo">
+			<view class="suggest">
+				<view class="example" @click="navigator">
+					<p>"艾叶的功效是什么？" →</p>
 				</view>
-				<hr class="foo">
-				<view class="suggest">
-					<view class="example" @click="navigator">
-						<p>"艾叶的功效是什么？" →</p>
-					</view>
-					<view class="example" @click="navigator">
-						<p>"什么药材清热解毒？" →</p>
-					</view>
-					<view class="example" @click="navigator">
-						<p>"湖北省有哪些药材？" →</p>
-					</view>
+				<view class="example" @click="navigator">
+					<p>"什么药材清热解毒？" →</p>
 				</view>
-		</view>
-		<view class="input" @click="navigator">
-			<image src="../../static/send.png">
-		</view>
+				<view class="example" @click="navigator">
+					<p>"湖北省有哪些药材？" →</p>
+				</view>
+			</view>
 	</view>
+	<view class="input" @click="navigator">
+		<image src="../../static/send.png">
+	</view>
+</view>
 </template>
 
 <script>
@@ -49,14 +49,15 @@
 		box-shadow: 8px 7px 10px rgba(0, 0, 0, .5);
 		position: absolute;
 		left: 50%;
-		top: 50%;
+		top: 49%;
 		transform: translate(-50%, -50%);
+		background-color: #fafbff;
 	}
 
 	.gpt {
 		margin-left: 10px;
 		margin-right: 10px;
-		margin-top: 10px;
+		margin-top: 5px;
 
 		image {
 			width: 150px;
@@ -93,7 +94,7 @@
 			justify-content: center;
 			align-items: center;
 			border-radius: 5px;
-			// background-color: rgb(47, 53, 47);
+			background-color: white;
 			border: 2px solid rgba(161, 163, 190, 0.8);
 			// box-shadow: 5px 5px 5px rgba(0, 0, 0, .5);
 			width: 85%;
