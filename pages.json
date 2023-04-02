@@ -2,7 +2,12 @@
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
 			"path": "pages/card/card",
-			"navigationBarBackgroundColor": ""
+			"navigationBarBackgroundColor": "",
+			// "navigationBarHidden": true,
+			"navigationStyle": "custom",
+			"app-plus": {  
+				"titleNView": false  
+			}
 		},{
             "path" : "pages/gpt/gpt",
             "style" :                                                                                    
@@ -101,19 +106,38 @@
             }
             
         }
+        ,{
+            "path" : "pages/acount/components/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/acount/components/submit",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "药材宝典",
 		"navigationBarBackgroundColor": "rgba(59,168,122)",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"navigationBarHidden": true
 	},
 	"uniIdRouter": {},
 	"tabBar": {
 		"color": "#999",
 		"selectedColor": "#99acbe",
-		"borderStyle": "black",
-		"backgroundColor": "#ffffff",
+		"borderStyle": "none",
+		"backgroundColor": "#e4e0df",
 		"list": [
 			{
 				"pagePath": "pages/card/card",
